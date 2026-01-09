@@ -1,12 +1,13 @@
 FROM node:20-slim
 
-# --- Chromium / Puppeteer dependencies ---
 RUN apt-get update && apt-get install -y \
   ca-certificates \
   fonts-liberation \
+  fonts-noto-color-emoji \
   libasound2 \
   libatk-bridge2.0-0 \
   libatk1.0-0 \
+  libcairo2 \
   libcups2 \
   libdrm2 \
   libgbm1 \
@@ -19,6 +20,8 @@ RUN apt-get update && apt-get install -y \
   libxfixes3 \
   libxkbcommon0 \
   libxshmfence1 \
+  libpango-1.0-0 \
+  libpangocairo-1.0-0 \
   xdg-utils \
   wget \
   --no-install-recommends \
@@ -30,4 +33,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["npm","start"]
