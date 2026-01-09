@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
   libxcomposite1 \
   libxdamage1 \
   libxrandr2 \
-  libxfixes3 \        # 🔴 BU EKSİKTİ
+  libxfixes3 \
   libxkbcommon0 \
   libxshmfence1 \
   xdg-utils \
