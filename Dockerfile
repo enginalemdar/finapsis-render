@@ -1,6 +1,6 @@
 FROM node:20-slim
 
-# Puppeteer için gerekli
+# --- Chromium / Puppeteer dependencies ---
 RUN apt-get update && apt-get install -y \
   ca-certificates \
   fonts-liberation \
@@ -16,6 +16,9 @@ RUN apt-get update && apt-get install -y \
   libxcomposite1 \
   libxdamage1 \
   libxrandr2 \
+  libxfixes3 \        # 🔴 BU EKSİKTİ
+  libxkbcommon0 \
+  libxshmfence1 \
   xdg-utils \
   wget \
   --no-install-recommends \
@@ -27,4 +30,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD ["npm","start"]
+CMD ["npm", "start"]
