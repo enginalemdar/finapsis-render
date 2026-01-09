@@ -5,13 +5,17 @@ const app = express();
 app.use(express.json({ limit: "15mb" }));
 
 app.post("/render", async (req, res) => {
-  const {
-    html,
-    width = 1200,
-    height = 675,
-    type = "png",
-    scale = 2
-  } = req.body;
+  const { html, width = 1200, height = 675 } = req.body;
+
+const w = Number(width) || 1200;
+const h = Number(height) || 675;
+
+await page.setViewport({
+  width: w,
+  height: h,
+  deviceScaleFactor: scale
+});
+
 
   if (!html) {
     return res.status(400).json({ error: "html is required" });
